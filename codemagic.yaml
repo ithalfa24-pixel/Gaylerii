@@ -6,7 +6,10 @@ workflows:
       java: 17
     scripts:
       - name: Extract project
-        script: unzip Gaylerii_v3.zip
+        script: |
+          ls -la
+          find . -name "*.zip" 
+          unzip *.zip
 
       - name: Fix font issue
         script: |
