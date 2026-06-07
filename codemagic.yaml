@@ -6,17 +6,12 @@ workflows:
       java: 17
     scripts:
       - name: Extract project
-        script: unzip Gaylerii.zip
+        script: unzip Gaylerii_v2.zip
 
       - name: Fix font issue
         script: |
           find Gaylerii/app/src/main/res -name "*.xml" -exec perl -i -pe 's/android:fontFamily="@font\/nunito_bold"//g' {} \;
           echo '<?xml version="1.0" encoding="utf-8"?><font-family xmlns:android="http://schemas.android.com/apk/res/android"></font-family>' > Gaylerii/app/src/main/res/font/nunito_bold.xml
-
-      - name: Fix albumSection reference
-        script: |
-          perl -i -pe 's/private lateinit var albumSection: View/private lateinit var albumSection: androidx.recyclerview.widget.RecyclerView/' Gaylerii/app/src/main/java/com/gaylerii/MainActivity.kt
-          perl -i -pe 's/albumSection = findViewById\(R\.id\.albumSection\)/albumSection = findViewById(R.id.rvAlbums)/' Gaylerii/app/src/main/java/com/gaylerii/MainActivity.kt
 
       - name: Build APK
         script: |
