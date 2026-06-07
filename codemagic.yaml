@@ -1,12 +1,12 @@
 workflows:
   android-workflow:
-    name: Gaylerii Build
+    name: Gaylerii Build V3
     max_build_duration: 60
     environment:
       java: 17
     scripts:
       - name: Extract project
-        script: unzip Gaylerii_v2.zip
+        script: unzip Gaylerii_v3.zip
 
       - name: Fix font issue
         script: |
