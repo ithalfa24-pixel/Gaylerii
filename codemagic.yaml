@@ -8,7 +8,6 @@ workflows:
       - name: Extract project
         script: |
           ls -la
-          find . -name "*.zip" 
           unzip *.zip
 
       - name: Fix font issue
